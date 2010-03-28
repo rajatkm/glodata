@@ -20,6 +20,6 @@ def view_save_feed(request, all_feeds_template):
            FeedEntry.objects.save_feed_entry(title=title,desc=desc,
                                              page_link=page_link,
                                              pub_date=pub_date,source=url)
-        fp.close()
+        #fp.close()
         
     return response(request, all_feeds_template, locals())            
