@@ -1,4 +1,4 @@
-from feedbox.models import FeedEntry, FeedURL
+from feedbox.models import FeedEntry, Feed
 from utils import response
 import urllib
 from xml.dom import minidom
@@ -7,7 +7,7 @@ def view_all_feeds(request, all_feeds_template):
     return response(request, all_feeds_template, {'all_feeds': FeedEntry.objects.all()})
 
 def view_save_feed(request, all_feeds_template):
-    for url_obj in FeedURL.objects.all():
+    for url_obj in Feed.objects.all():
         url = url_obj.source_url
         fp = urllib.urlopen(url)
         xmldoc = minidom.parse(fp)
