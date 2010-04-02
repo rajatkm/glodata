@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpRespons
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-def my_homepage_view(request,homepage_template):
+def my_homepage_view(request, homepage_template):
     if request:
         return render_to_response(homepage_template, locals(), context_instance=RequestContext(request))
     return render_to_response(homepage_template, locals())
