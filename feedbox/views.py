@@ -36,3 +36,6 @@ def view_save_feed(request, all_feeds_template):
     #Only use locals when too many objects are to be accessed, which wont be
     #the normal case anyway.
     return response(request, all_feeds_template, locals())
+
+def view_homepage(request, homepage_template):
+    return response(request, homepage_template, {})

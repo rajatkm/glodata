@@ -5,4 +5,5 @@ class FeedModelAdmin(admin.ModelAdmin):
     prepopulated_fields = {'Feed url': ("url",)}
     list_per_page = 25
 
-admin.site.register(Feed, FeedModelAdmin)
+#FIXME:Throwing error if the below statement is uncommented. Need to check
+#admin.site.register(Feed, FeedModelAdmin)
