@@ -1,9 +1,11 @@
 from django.contrib import admin
-from feedbox.models import Feed
+from feedbox.models import Feed, FeedEntry
 
 class FeedModelAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'Feed url': ("url",)}
     list_per_page = 25
 
-#FIXME:Throwing error if the below statement is uncommented. Need to check
-#admin.site.register(Feed, FeedModelAdmin)
+class FeedEntryModelAdmin(admin.ModelAdmin):
+    list_per_page = 25
+
+admin.site.register(FeedEntry, FeedEntryModelAdmin)
+admin.site.register(Feed, FeedModelAdmin)

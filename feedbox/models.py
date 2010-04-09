@@ -18,7 +18,7 @@ class FeedManager(models.Manager):
             return None
 
 class Feed(BaseModel):
-    url = models.TextField(max_length=150, unique=True, db_index=True)
+    url = models.CharField(max_length=150, unique=True, db_index=True)
     name = models.TextField(max_length=50)
     blocked = models.BooleanField(default=False)
     last_updated = models.DateTimeField()
@@ -38,12 +38,12 @@ class Feed(BaseModel):
         return self
 
 class FeedEntryManager(models.Manager):
-    def create_feedentry(self, title, desc, url):
+    def create_feedentry(self, title, desc, url, feed):
         feedentry = self.exists(url=url)
         if not feedentry:
             title = striptags(title)
             desc = striptags(desc)
-            feedentry = FeedEntry(title=title, slug=slugify(title), desc=desc, url=url)
+            feedentry = FeedEntry(title=title, slug=slugify(title), desc=desc, url=url, feed=feed)
             feedentry.save()
         return feedentry
 
