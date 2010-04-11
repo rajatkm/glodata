@@ -60,6 +60,9 @@ class FeedEntry(BaseModel):
     url = models.CharField(max_length=200, unique=True, db_index=True)
     feed = models.ForeignKey(Feed)
     objects = FeedEntryManager()
+    
+    class Meta:
+        verbose_name_plural = 'Feed Entries'
 
     def __unicode__(self):
         return self.title
