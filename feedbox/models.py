@@ -5,6 +5,7 @@ from django.template.defaultfilters import striptags
 
 class FeedManager(models.Manager):
     def create_feed(self, url, name):
+        print 'coming here .....'
         feed = self.exists(url=url)
         if not feed:
             feed = Feed(url=url, name=name)
@@ -19,9 +20,9 @@ class FeedManager(models.Manager):
 
 class Feed(BaseModel):
     url = models.CharField(max_length=150, unique=True, db_index=True)
-    name = models.TextField(max_length=50)
+    name = models.CharField(max_length=50)
     blocked = models.BooleanField(default=False)
-    last_updated = models.DateTimeField()
+    last_updated = models.DateTimeField(blank=True, null=True)
     objects = FeedManager()
 
     def __unicode__(self):
@@ -54,10 +55,10 @@ class FeedEntryManager(models.Manager):
             return None
 
 class FeedEntry(BaseModel):
-    title = models.TextField(max_length=100, db_index=True)
+    title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     desc = models.TextField(max_length=500)
-    url = models.TextField(max_length=200, unique=True, db_index=True)
+    url = models.CharField(max_length=200, unique=True, db_index=True)
     feed = models.ForeignKey(Feed)
     objects = FeedEntryManager()
 
