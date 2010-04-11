@@ -5,7 +5,6 @@ from django.template.defaultfilters import striptags
 
 class FeedManager(models.Manager):
     def create_feed(self, url, name):
-        print 'coming here .....'
         feed = self.exists(url=url)
         if not feed:
             feed = Feed(url=url, name=name)
