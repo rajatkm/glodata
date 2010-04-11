@@ -1,5 +1,5 @@
 from django.contrib import admin
-from feedbox.models import Feed, FeedEntry
+from feeds.models import Feed, FeedEntry
 
 class FeedModelAdmin(admin.ModelAdmin):
     list_per_page = 25

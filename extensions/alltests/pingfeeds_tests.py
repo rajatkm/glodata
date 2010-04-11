@@ -4,9 +4,9 @@ class PingFeedsExtension_Tests(TestCase):
 #    fixtures = ['PingFeeds.json']
 
     def test_pingfeeds_with_valid_rss_url(self):
-        from feedbox.models import FeedEntry
+        from feeds.models import FeedEntry
         self.assertFalse(FeedEntry.objects.count())
-        from feedbox.models import Feed
+        from feeds.models import Feed
         feed = Feed.objects.create_feed(url='http://feeds.feedburner.com/blogspot/MKuf', name='Official Google Blog')
         #TODO:Feed creation should go in a fixture. Its failing to load
         #fixtures. Need to check why
