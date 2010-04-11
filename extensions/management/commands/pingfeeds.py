@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.core.management.base import NoArgsCommand
-from feedbox.models import FeedEntry, Feed
+from feeds.models import FeedEntry, Feed
 from libs.feedparser import parse as parse_feed
 
 class Command(NoArgsCommand):

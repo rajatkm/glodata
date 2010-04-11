@@ -1,4 +1,4 @@
-from feedbox.models import FeedEntry, Feed
+from feeds.models import FeedEntry, Feed
 from utils import response
 from xml.dom import minidom
 import urllib

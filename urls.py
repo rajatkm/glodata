@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 )
 
-urlpatterns += patterns('feedbox.views',
+urlpatterns += patterns('feeds.views',
     (r'^$', 'view_homepage', {'homepage_template':'homepage.html'}, 'homepage'),
 )

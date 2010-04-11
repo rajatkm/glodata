@@ -1,5 +1,5 @@
 from utils import TestCase
-from feedbox.models import Feed
+from feeds.models import Feed
 
 class FeedTests(TestCase):
 
