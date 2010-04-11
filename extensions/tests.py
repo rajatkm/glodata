@@ -1,0 +1,1 @@
+from extensions.alltests.pingfeeds_tests import *
