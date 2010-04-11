@@ -63,6 +63,7 @@ class FeedEntry(BaseModel):
     
     class Meta:
         verbose_name_plural = 'Feed Entries'
+        verbose_name = "Feed Entry"
 
     def __unicode__(self):
         return self.title
