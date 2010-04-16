@@ -1,0 +1,1 @@
+'''This is just an empty file which is there for the convenience of making the extensions folder as an app. So that we can run tests using django 'test' command extension.'''

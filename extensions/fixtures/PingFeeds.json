@@ -1,0 +1,14 @@
+[
+    {
+        "pk": 1, 
+        "model": "feedbox.feed", 
+        "fields": {
+            "last_updated": null, 
+            "name": "Official Google Blog", 
+            "url": "http://feeds.feedburner.com/blogspot/MKuf", 
+            "created_on": "2010-04-10 16:52:48", 
+            "modified_on": "2010-04-10 16:52:48", 
+            "blocked": false
+        }
+    }
+]
