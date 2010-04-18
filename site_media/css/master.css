@@ -1,6 +1,6 @@
 /*Global Styles*/
 input[type="text"], input[type="password"], input.text, input.title, textarea, select{margin:0;}
-body{background:#03258C;font-family:"Helvetica Neue",Helvetica,Arial,Helvetica,sans-serif;}
+body{background:#001329;font-family:"Helvetica Neue",Helvetica,Arial,Helvetica,sans-serif;}
 a{color:#3079D9;text-decoration:none;border-bottom:1px solid #3079D9;}
 a:hover{color:#03258C;text-decoration:none;border-bottom:1px solid #03258C;}
 input[type="button"], input[type="submit"]{background:#F2D027;color:#000;}
