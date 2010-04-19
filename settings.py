@@ -84,3 +84,7 @@ INSTALLED_APPS = (
     'utils',
     'extensions'
 )
+
+SEARCHER = 'normal'
+#SEARCHER = 'haystack'
+#SEARCHER = 'hybrid'

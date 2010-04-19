@@ -1,0 +1,14 @@
+[
+    {
+        "pk": 1, 
+        "model": "feeds.feed", 
+        "fields": {
+            "last_updated": "2010-04-18 13:48:16", 
+            "name": "Google Blog", 
+            "url": "http://feeds.feedburner.com/blogspot/MKuf", 
+            "created_on": "2010-04-18 13:48:02", 
+            "modified_on": "2010-04-18 13:48:16", 
+            "blocked": false
+        }
+    }
+]

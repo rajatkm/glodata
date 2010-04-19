@@ -9,3 +9,8 @@ input[type="button"], input[type="submit"]{background:#F2D027;color:#000;}
 #tabs{background:#3079D9;height:30px;color:#FFF;padding:4px;}
 #content{background:#FFF;color:#484848;min-height:200px;padding:4px;}
 #footer{border-top:2px solid #3079D9;padding:4px;height:30px;background:#FFF;font-size:20px;}
+
+/*Feedentries*/
+#searchresults{margin-top:10px;}
+.feedentry{margin-bottom:6px;padding:4px;}
+.feedentry h3{margin-bottom:0.5em;}

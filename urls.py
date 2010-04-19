@@ -9,6 +9,10 @@ urlpatterns = patterns('',
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 
+urlpatterns += patterns('',
+    (r'^feeds/', include('feeds.urls')),
+)
+
 urlpatterns += patterns('feeds.views',
     (r'^$', 'view_homepage', {'homepage_template':'homepage.html'}, 'homepage'),
 )
