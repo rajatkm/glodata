@@ -67,3 +67,7 @@ class FeedEntry(BaseModel):
 
     def __unicode__(self):
         return self.title
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('feedentry_profile', (self.id, self.slug))

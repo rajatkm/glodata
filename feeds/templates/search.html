@@ -1,0 +1,14 @@
+{%extends 'singlepane_base.html'%}
+{% block title %}Search{% endblock %}
+{%block content%}
+<form action="{%url search%}" method="post">
+{{form}}
+<input type="submit" value="Search" name="submit"/>
+</form>
+{%load feeds_tags%}
+<div id='searchresults'>
+{%for feedentry in feedentries%}
+{%render_feedentry feedentry%}
+{%endfor%}
+</div><!-- end of searchresults -->
+{%endblock%}
