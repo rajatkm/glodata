@@ -1,0 +1,11 @@
+{%extends 'singlepane_base.html'%}
+{% block title %}{{feed.name}}{% endblock %}
+{%block content%}
+<div id='feed{{feed.id}}' class='feed'>
+<h3><a title="{{feed.name}}" href="{%url feed_profile feed.id%}">{{feed.name}}</a></h3>
+<em>Last Updated:{{feed.last_updated|date:"dS M Y g:i a"}}</em>
+{%load feeds_tags%}
+{%for feedentry in feed.feedentries%}
+{%render_feedentry feedentry%}
+{%endfor%}
+{%endblock%}
