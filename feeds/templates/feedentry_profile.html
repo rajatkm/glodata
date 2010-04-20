@@ -1,9 +1,9 @@
 {%extends 'singlepane_base.html'%}
-{% block title %}Search{% endblock %}
+{% block title %}{{feedentry.title}}{% endblock %}
 {%block content%}
 <div id='feedentry{{feedentry.id}}' class='feedentry'>
 <h3><a title="{{feedentry.title}}" href="{%url feedentry_profile feedentry.id feedentry.slug%}">{{feedentry.title}}</a></h3>
-<em>Posted on:{{feedentry.created_on|date:"dS M Y"}}</em>
+<em>Posted on:{{feedentry.created_on|date:"dS M Y g:i a"}}</em>
 <div id='description'>{{feedentry.desc}}</div>
 </div>
 {%endblock%}
