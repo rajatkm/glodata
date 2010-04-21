@@ -85,3 +85,7 @@ INSTALLED_APPS = (
     'extensions',
     'dashboards'
 )
+
+SEARCHER = 'normal'
+#SEARCHER = 'haystack'
+#SEARCHER = 'hybrid'

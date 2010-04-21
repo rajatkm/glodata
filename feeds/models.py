@@ -3,6 +3,10 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.template.defaultfilters import striptags
 
+class ActiveFeedsManager(models.Manager):
+    def get_query_set(self):
+        return super(ActiveFeedsManager, self).get_query_set().filter(blocked=False)
+
 class FeedManager(models.Manager):
     def create_feed(self, url, name):
         feed = self.exists(url=url)
@@ -23,6 +27,7 @@ class Feed(BaseModel):
     blocked = models.BooleanField(default=False)
     last_updated = models.DateTimeField(blank=True, null=True)
     objects = FeedManager()
+    activeobjects = ActiveFeedsManager()
 
     def __unicode__(self):
         return self.name
@@ -36,6 +41,10 @@ class Feed(BaseModel):
         self.block = False
         self.save()
         return self
+    
+    @property
+    def feedentries(self):
+        return self.feedentry_set.all()
 
 class FeedEntryManager(models.Manager):
     def create_feedentry(self, title, desc, url, feed):
@@ -64,6 +73,12 @@ class FeedEntry(BaseModel):
     class Meta:
         verbose_name_plural = 'Feed Entries'
         verbose_name = "Feed Entry"
+        ordering = ['-created_on']
+        get_latest_by = 'created_on'
 
     def __unicode__(self):
         return self.title
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('feedentry_profile', (self.id, self.slug))

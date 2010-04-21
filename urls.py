@@ -10,8 +10,8 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
+    (r'^feeds/', include('feeds.urls')),
     (r'^ScribblePad/', include('dashboards.urls')),
-#    (r'^feeds/', include('feeds.urls')),
 )
 
 urlpatterns += patterns('feeds.views',
