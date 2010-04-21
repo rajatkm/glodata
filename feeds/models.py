@@ -63,7 +63,7 @@ class FeedEntryManager(models.Manager):
             return None
 
 class FeedEntry(BaseModel):
-    title = models.CharField(max_length=100, db_index=True)
+    title = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     desc = models.TextField(max_length=500)
     url = models.CharField(max_length=200, unique=True, db_index=True)

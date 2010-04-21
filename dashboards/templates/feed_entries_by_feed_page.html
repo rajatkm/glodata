@@ -1,0 +1,14 @@
+{%extends 'singlepane_base.html'%}
+{% block title %}High effective data research centre - ScribblePad{% endblock %}
+{%block content%}
+<h3>Scribble Pad - Feed entries per Feed sources</h3>
+<div>
+	<ul>
+		{%for feed_entry in all_feeds_entries%}
+			<li><a href="/ScribblePad/feeds/{{ feed.name|slugify }}">{{ feed.name }}</a><br></li>
+		{%empty%}
+			<li>No feeds yet</li>
+		{%endfor%}
+	</ul>
+</div>
+{%endblock%}

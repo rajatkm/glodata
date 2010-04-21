@@ -82,7 +82,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'feeds',
     'utils',
-    'extensions'
+    'extensions',
+    'dashboards'
 )
 
 SEARCHER = 'normal'
