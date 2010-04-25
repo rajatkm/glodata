@@ -5,7 +5,10 @@
 <div>
 	<ul>
 		{%for feed in all_feeds%}
-			<li><a href="/ScribblePad/feeds/{{ feed.name|slugify }}">{{ feed.name }}</a><br></li>
+			<div><li>
+				<a href="/notepad/feeds/{{ feed.id }}">{{ feed.name }}</a><br>
+				<em>Last Updated:{{feed.last_updated|date:"dS M Y g:i a"}}</em>
+			</div></li>
 		{%empty%}
 			<li>No feeds yet</li>
 		{%endfor%}

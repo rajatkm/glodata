@@ -1,14 +1,19 @@
 {%extends 'singlepane_base.html'%}
 {% block title %}High effective data research centre - ScribblePad{% endblock %}
 {%block content%}
-<h3>Scribble Pad - Feed entries per Feed sources</h3>
+<h5>Scribble Pad - Feed entries from "{{feed}}"</h5>
 <div>
-	<ul>
-		{%for feed_entry in all_feeds_entries%}
-			<li><a href="/ScribblePad/feeds/{{ feed.name|slugify }}">{{ feed.name }}</a><br></li>
+	<ul><form name="input" action="/notepad/feeds/{{feed_id}}/" method="POST">
+		{%for feedentry in feedentries_per_feed%}
+			<input type="checkbox" name="feedentry" value="{{feedentry.id}}" />
+			<a title="{{feedentry.title}}" href="{{feedentry.url}}">{{feedentry.title}}</a><br>
+			<em>Posted on:{{feedentry.created_on|date:"dS M Y g:i a"}}</em>
+			<div id='description'>{{feedentry.desc}}...
+			<a title="{{feedentry.url}}" href="{{feedentry.url}}"> Read More</a></div><br>
 		{%empty%}
 			<li>No feeds yet</li>
 		{%endfor%}
-	</ul>
+		<input type="submit" value="Push them to My Pane" />
+	</form></ul>
 </div>
 {%endblock%}
