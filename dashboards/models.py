@@ -3,10 +3,10 @@ from django.db import models
 from feeds.models import FeedEntry
 
 class UserFeedEntryManager(models.Manager):
-    def create_user_feedentry(self, name, feedentry):
-        user_feedentry = self.exists(url=url)
-        if not feed:
-            user_feedentry = UserFeedEntry(name='Thilak', feedentry = feedentry)
+    def create_user_feedentry(self, feedentry):
+        user_feedentry = self.exists(feedentry = feedentry)
+        if not user_feedentry:
+            user_feedentry = UserFeedEntry(name='Thilak', feedentry=feedentry)
             user_feedentry.save()
         return user_feedentry
 
@@ -17,7 +17,7 @@ class UserFeedEntryManager(models.Manager):
             return None
 
 class UserFeedEntry(BaseModel):
-    name = models.CharField(max_length=50, unique=True, db_index=True)
+    name = models.CharField(max_length=50)
     feedentry = models.ForeignKey(FeedEntry)
     objects = UserFeedEntryManager()
 
