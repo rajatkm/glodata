@@ -12,9 +12,9 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'glodata'             # Or path to database file if using sqlite3.
-DATABASE_USER = 'glodata'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'glodata'         # Not used with sqlite3.
+DATABASE_NAME = 'manda'             # Or path to database file if using sqlite3.
+DATABASE_USER = 'manda'             # Not used with sqlite3.
+DATABASE_PASSWORD = 'manda'         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
@@ -73,7 +73,7 @@ AUTHENTICATION_BACKENDS = ('utils.authbackend.EmailBackend',)
 
 INTERNAL_IPS = ('127.0.0.1',)
 
-ROOT_URLCONF = 'glodata.urls'
+ROOT_URLCONF = '%s.urls' % ROOT_PATH.split('/')[-1]
 
 TEMPLATE_DIRS = (
     "%s/templates" % ROOT_PATH,
