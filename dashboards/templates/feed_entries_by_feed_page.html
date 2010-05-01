@@ -1,7 +1,7 @@
 {%extends 'singlepane_base.html'%}
-{% block title %}High effective data research centre - ScribblePad{% endblock %}
+{% block title %}Feed entries from "{{feed}}"{% endblock %}
 {%block content%}
-<h5>NotePad - Feed entries from "{{feed}}"</h5>
+<h5>Feed entries from "{{feed}}"</h5>
 <div>
 	<ul><form name="input" action="/notepad/feeds/{{feed_id}}/" method="POST">
 		{%for feedentry in feedentries_per_feed%}
