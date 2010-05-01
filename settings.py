@@ -1,6 +1,7 @@
 import os
 
 DEBUG = True
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -31,12 +32,9 @@ LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 
 ROOT_PATH = os.getcwd()
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
+USE_I18N = False
+
 MEDIA_ROOT = '%s/site_media/' % ROOT_PATH
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -52,6 +50,8 @@ ADMIN_MEDIA_PREFIX = '/media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 's+ly&cz!9ek)6@*(4n9nd#y8p@35fce$geucr+gfw74@&f17by'
 
+EMAIL_SUBJECT_PREFIX = '[M&A] '
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
@@ -63,14 +63,19 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_messages_framework.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 )
+
+AUTH_PROFILE_MODULE='users.UserProfile'
+
+AUTHENTICATION_BACKENDS = ('utils.authbackend.EmailBackend',)
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'glodata.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     "%s/templates" % ROOT_PATH,
 )
 
@@ -80,12 +85,27 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'users',
     'feeds',
     'utils',
     'extensions',
-    'dashboards'
+    'dashboards',
+    'django_messages_framework',
+    'debug_toolbar'
 )
 
 SEARCHER = 'normal'
 #SEARCHER = 'haystack'
 #SEARCHER = 'hybrid'
+
+DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.auth",
+                               "django.core.context_processors.debug",
+                               "django.core.context_processors.i18n",
+                               "django.core.context_processors.media",
+                               "django_messages_framework.context_processors.messages")
+
+MESSAGE_STORAGE = 'django_messages_framework.storage.cookie.CookieStorage'
+
+PAGINATION_ITEMS_SIZE = 10

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Manager as BaseModelManager
 
 class BaseModel(models.Model):
     id = models.AutoField(primary_key=True)

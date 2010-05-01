@@ -31,7 +31,11 @@ class Feed(BaseModel):
 
     def __unicode__(self):
         return self.name
-
+    
+    def fetch(self):
+        from extensions.management.commands.pingfeeds import ping_feed
+        ping_feed(self)
+        
     def block(self):
         self.blocked = True
         self.save()
@@ -48,6 +52,7 @@ class Feed(BaseModel):
 
 class FeedEntryManager(models.Manager):
     def create_feedentry(self, title, desc, url, feed):
+        print 'title:%s' % title
         feedentry = self.exists(url=url)
         if not feedentry:
             title = striptags(title)
@@ -63,9 +68,9 @@ class FeedEntryManager(models.Manager):
             return None
 
 class FeedEntry(BaseModel):
-    title = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
-    desc = models.TextField(max_length=500)
+    title = models.CharField(max_length=250, db_index=True)
+    slug = models.SlugField(max_length=250, db_index=True)
+    desc = models.TextField(max_length=2000)
     url = models.CharField(max_length=200, unique=True, db_index=True)
     feed = models.ForeignKey(Feed)
     objects = FeedEntryManager()
