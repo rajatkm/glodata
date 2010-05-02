@@ -29,6 +29,7 @@ ul.errorlist{font-size:0.75em;color:#FFF;background:#DB3425;list-style-type:none
 .error a {color:#8a1f11;}
 .info a {color:#514721;}
 .success a {color:#264409;}
+label{font-family:"Trebuchet MS", Arial, sans-serif;}
 
 /*Feedentries*/
 #searchresults{margin-top:10px;}
