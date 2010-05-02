@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="container" class='container'>
-        <div id='header' class='header span-24'>
+        <div id='header' class='span-24'>
             {%block header%}
                 {%include 'header.html'%}        
             {%endblock%}
@@ -25,7 +25,7 @@
         <div id='content' class='span-24'>
             {%block messages%}
                 {% if messages %}
-                    <ul class="messages">
+                    <ul id="messages">
                         {% for message in messages %}
                         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                         {% endfor %}
@@ -35,7 +35,7 @@
             {%block content%}
             {%endblock%}
         </div><!-- end of content -->
-        <div id='footer' class='footer span-24'>
+        <div id='footer' class='span-24'>
             {%block footer%}
                 {%include 'footer.html'%}            
             {%endblock%}

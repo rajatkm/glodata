@@ -22,7 +22,7 @@ input[type="button"], input[type="submit"]{background:#F2D027;color:#000;}
 #footer{border-top:2px solid #3079D9;padding:4px;height:30px;background:#FFF;font-size:20px;}
 #footer_links{text-align:center;font-size:1em;}
 ul.errorlist{font-size:0.75em;color:#FFF;background:#DB3425;list-style-type:none;margin:0;width:180px;padding:0.2em;}
-.messages{margin:0 auto;list-style-type:none;width:50%;padding:0;text-align:center;font:bold 1.2em monospace;}
+#messages{margin:0 auto;list-style-type:none;width:50%;padding:0;text-align:center;font:bold 1.2em monospace;}
 .error, .info, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
 .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 .info {background:#FFF6BF;color:#514721;border-color:#FFD324;}
