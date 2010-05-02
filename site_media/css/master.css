@@ -8,16 +8,17 @@ a:hover{color:#03258C;text-decoration:none;border-bottom:1px solid #03258C;}
 input[type="button"], input[type="submit"]{background:#F2D027;color:#000;}
 .congrats{background:#88A61B;color:#000;}
 #header{background:#FFF;height:70px;padding:4px;}
-#logo{font-size:20px;}
-#header a{text-decoration:none;color:#484848;border:0;}
+#logo{font-size:20px;padding-left:20px;}
+#header #logo a{text-decoration:none;color:#484848;border:0;}
 #header_toplinks{text-align:right;}
 #header_toplinks ul{list-style-type:none;}
 #header_toplinks li{display:inline;}
-#header_toplinks li a{color:#03258C;text-decoration:none;}
-#tabs{background:#001329;height:30px;padding:4px;}
-#tabs li{display:inline;list-style-type:none;}
-#tabs li a{text-decoration:none;border:0;}
-#content{background:#FFF;color:#484848;min-height:200px;padding:4px;}
+#header_toplinks li a{text-decoration:none;}
+#tabs{background:#001329;height:24px;padding:4px;}
+#tabs li{display:inline;list-style-type:none;padding:0 1.5em;}
+#tabs li a{text-decoration:none;border:0;font-weight:bold;}
+#tabs li a:hover{color:#FFF;}
+#content{background:#FFF;color:#484848;min-height:200px;padding:8px;}
 #footer{border-top:2px solid #3079D9;padding:4px;height:30px;background:#FFF;font-size:20px;}
 #footer_links{text-align:center;font-size:1em;}
 ul.errorlist{font-size:0.75em;color:#FFF;background:#DB3425;list-style-type:none;margin:0;width:180px;padding:0.2em;}
