@@ -1,1 +1,16 @@
-<div id='logo'><h2 class='prepend-1'><a href="{%url homepage%}" title="Home">Markets & Data</a></h2></div>
+<div id='logo' class='column span-10 prepend-1'>
+    <h2><a href="{%url homepage%}" title="Home">Markets & Data</a></h2>
+</div>
+<div id='header_toplinks' class='column span-12'>
+    <ul>
+        {%if user.is_authenticated%}
+            {%with user.get_profile as userprofile%}
+               <li class='append-1'>Hi {%firstof userprofile.name|title userprofile.email%}</li>
+               <li class='append-1'><a href='{%url logout%}'>Logout</a></li>
+            {%endwith%}
+        {%else%}
+           <li class='append-1'><a href='{%url register%}'>Register</a></li>
+           <li class='append-1'><a href='{%url login%}'>Login</a></li>
+        {%endif%}
+    </ul>
+</div>
